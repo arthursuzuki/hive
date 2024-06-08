@@ -1,10 +1,10 @@
-package com.hiveapp.hiveapp;
+package grupo10.hive;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HiveappApplicationTests {
+class HiveApplicationTests {
 
 	@Test
 	void contextLoads() {

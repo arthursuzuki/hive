@@ -1,13 +1,13 @@
-package com.hiveapp.hiveapp;
+package grupo10.hive;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HiveappApplication {
+public class HiveApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HiveappApplication.class, args);
+		SpringApplication.run(HiveApplication.class, args);
 	}
 
 }
