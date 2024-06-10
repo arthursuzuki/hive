@@ -1,46 +1,62 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Página Inicial</title>
-    <style>
-        /* Estilos para o corpo */
-        body {
-            background-color: orange;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Estilos para o container */
-        .container {
-            text-align: center;
-        }
-
-        /* Estilos para o botão */
-        .button-link {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .button-link:hover {
-            background-color: #0056b3;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>HIVE | Cesar School</title>
+<style>
+  body {
+    margin: 0;
+    background-color: #FFF1A6;
+    font-family: Arial, sans-serif;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #EDA32B;
+    align-items: center;
+  }
+  .menu {
+    font-size: 18px;
+    color: #ffff;
+  }
+  .login-btn {
+    background-color: #CE5909;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  .logo img {
+    left: 0px;
+    top: 0px;
+    width: 497px;
+    height: 440px;
+  }
+  .logo1 img {
+    margin-left: 130px;
+    top: 0px;
+    width: 200px;
+    height: 176px;
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Bem-vindo!</h1>
-        <a th:href="@{/home}" class="button-link">Entrar</a>
+    <header>
+    <nav class="menu">
+        HIVE | Cesar School | Lattes
+    </nav>
+    <a href="@{home}">
+        <button class="login-btn">ENTRAR</button>
+    </a>
+    </header>
+    <div class="logo">
+        <img th:src="@{/hive.png}" alt="hive_logo">
+    </div>
+    <div class="logo1">
+        <img th:src="@{/cesar.png}" alt="cesar_logo">
     </div>
 </body>
 </html>

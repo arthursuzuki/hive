@@ -1,44 +1,81 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Página Home</title>
-    <style>
-        body {
-            background-color: orange;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            text-align: center;
-        }
-
-        .button-link {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-            margin: 10px 0;
-        }
-
-        .button-link:hover {
-            background-color: #0056b3;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>HIVE | Cesar School</title>
+<style>
+  body {
+    margin: 0;
+    background-color: #FFF1A6; /* amarelo claro */
+    font-family: Arial, sans-serif;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #EDA32B; /* amarelo escuro para a barra de menu */
+    align-items: center;
+  }
+  .menu {
+    font-size: 18px;
+    color: white;
+  }
+  .banner {
+    text-align: center;
+    margin-top: 50px;
+  }
+  .button {
+    background-color: #CE5909; /* cor laranja */
+    color: white;
+    border: none;
+    width: 252px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    display: inline-block;
+    box-shadow: 2px 2px 10px rgba(206, 89, 9, 1); /* adicionando sombra */
+}
+  .logos {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaço entre as imagens */
+  }
+  .logo img, .logo2 img {
+    margin-top: 40px;
+    height: 180px;
+    width: auto;
+  }
+  .tagline {
+    font-size: 18px;
+    color: #333; /* cinza escuro */
+    text-align: center;
+    margin-top: 20px;
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <a th:href="@{/login1}" class="button-link">Membro da comunidade acadêmica</a>
-        <a th:href="@{/login2}" class="button-link">Gerenciador de pesquisa</a>
+    <header>
+    <nav class="menu">
+        HIVE | Cesar School | Lattes
+    </nav>
+    </header>
+    <div class="logos">
+        <div class="logo">
+            <img th:src="@{/hive.png}" alt="HIVE Logo">
+        </div>
+        <div class="logo2">
+            <img th:src="@{/cesar.png}" alt="Cesar School Logo">
+        </div>
+    </div>
+    <div class="banner">
+        <a th:href="@{/comunidade_academica}">
+            <button class="button">Membro da comunidade acadêmica</button>
+        </a>
+    </div>
+    <div class="banner">
+        <a th:href="@{/artigo}">
+            <button class="button">Gerenciador de pesquisa</button>
+        </a>
     </div>
 </body>
 </html>
