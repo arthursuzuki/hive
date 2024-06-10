@@ -1,9 +1,9 @@
 package br.com.projeto.api.controle;
 
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 
 
@@ -20,14 +20,14 @@ public class Controle {
         return new ModelAndView("home");
     }
 
-    @RequestMapping("/login1")
-    public ModelAndView login1(){
-        return new ModelAndView("login1");
+    @RequestMapping("/login_comunidade")
+    public ModelAndView login_comunidade(){
+        return new ModelAndView("login_comunidade");
     }
 
-    @RequestMapping("/login2")
-    public ModelAndView login2(){
-        return new ModelAndView("login2");
+    @RequestMapping("/login_pesquisa")
+    public ModelAndView login_pesquisa(){
+        return new ModelAndView("login_pesquisa");
     }
 
     @RequestMapping("/comunidade_academica")

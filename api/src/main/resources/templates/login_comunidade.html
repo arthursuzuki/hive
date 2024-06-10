@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>HIVE | Cesar School</title>
+<style>
+  body {
+    margin: 0;
+    background-color: #FFF1A6;
+    font-family: Arial, sans-serif;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #EDA32B;
+    align-items: center;
+  }
+  .menu {
+    font-size: 18px;
+    color: white;
+  }
+  .main-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    align-items: flex-start;
+  }
+  .welcome {
+    font-size: 100px;
+    font-family: "Inter";
+    font-weight: bold;
+    color: #4301FF;
+    margin-right: 50px;
+  }
+  .login-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+  }
+  input[type="email"], input[type="password"], input[type="text"] {
+    width: 400px;
+    height: 60px;
+    font-size: 30px;
+    border-radius: 30px;
+    background-color: #CE5909;
+    border: none;
+    margin-top: 10px;
+  }
+  .button {
+    font-size: 30px;
+    width: 400px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #EDA32B;
+    border: none;
+    margin-top: 20px;
+  }
+  .logos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .logo img, .logo2 img {
+    height: 200px;
+    width: auto;
+  }
+</style>
+</head>
+<body>
+    <header>
+    <nav class="menu">
+        HIVE | Cesar School | Lattes
+    </nav>
+    </header>
+    <div class="main-content">
+      <div class="welcome">SEJA BEM VINDO (A)</div>
+      <div class="login-section">
+        <div class="logos">
+            <div class="logo">
+                <img th:src="@{/hive.png}" alt="HIVE Logo">
+            </div>
+            <div class="logo2">
+                <img th:src="@{/cesar.png}" alt="Cesar School Logo">
+            </div>
+        </div>
+        <form th:action="@{/comunidade_academica}" method="post">
+            <input type="email" name="email" placeholder="Email School" required>
+            <input type="password" name="password" placeholder="Senha" required>
+            <button type="submit" class="button">ENTRAR</button>
+        </form>
+      </div>
+    </div>
+</body>
+</html>
