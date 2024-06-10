@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "ApiApplication",
+            "request": "launch",
+            "mainClass": "br.com.projeto.api.ApiApplication",
+            "projectName": "api"
+        }
+    ]
+}
