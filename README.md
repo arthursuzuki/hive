@@ -7,6 +7,8 @@ Rodrigo Lucena Cavalcanti - rlc2@cesar.school
 
 Caio Machado de Aquino Fonseca - cmaf@cesar.school
 
+Henrique Lobo Queiroz Guimarães - hlqg@cesar.school
+
 Lucas Souto Maior Caldas - lsmc2@cesar.school
 
 Arthur Suzuki - ajls@cesar.school
