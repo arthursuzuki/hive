@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Página Home</title>
+<style>
+  body {
+    background-color: #FFF8D1; /* Fundo amarelo claro */
+    color: #FFFFFF; /* Texto branco */
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header {
+    background-color: #EDA32B; /* Laranja */
+    text-align: left;
+    height: 70px;
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    padding-left: 40px; /* Adiciona espaço à esquerda */
+  }
+
+
+  .header p {
+    display: inline;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 40px;
+    margin-top: 20px;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .title {
+    color: #CE5909; /* Cor do título */
+    font-size: 60px;
+    font-weight: 800;
+    margin-left: 190px;
+    margin-top: -100px;
+  }
+
+  .search-box {
+    margin-top: 20px;
+    margin-left: 50px;
+  }
+
+  .search-box input {
+    width: 277px;
+    height: 57px;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    flex-shrink: 0;
+    border-radius: 50px;
+    background: #6498FA;
+    border: none;
+    margin-left: 900px;
+    margin-top: -80px;
+    display: flex;
+    color: #FFFFFF;
+    padding-left: 45px;
+  }
+
+  .search-box input::value{
+    color: #FFFFFF;   
+  }
+
+  .table-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .email{
+    width: 81px;
+    height: 16px;
+    flex-shrink: 0;
+    color: #EDA32B;
+    font-family: sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: 190px;
+  }
+
+  .imagem {
+    margin-top:45px;
+    margin-left: 70px;
+    width: 91px;
+    height: 88px;
+    left: 20px;
+    gap: 0px;
+    opacity: 1; /* Ajusta opacidade para 1 */
+  }
+  table {
+    width: 45%;
+    border-collapse: collapse;
+    margin-top: 70px;
+    margin-left: 25%;
+    text-align: center;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #FFFFFF;
+    padding-left: 25px;
+  }
+
+  th {
+    background-color: #FFF1A6; /* Azul claro */
+    color: #000000;
+    text-align: center;
+  }
+
+  td {
+    background-color: #6498FA; /* Azul escuro */
+  }
+
+  a {
+    color: #FFFFFF; /* Links em branco */
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+    <div class="header">
+    </div>
+    <div class="content">
+        <img src="@{/elipse.png}" alt="" class="imagem">
+        <div class="title">NOME</div>
+        <div class="email">email@school</div>
+        <div class="search-box">
+            <div class="search-box">
+                <input type="button" value="ACESSAR LATTES">
+            </div>
+            
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>TÍTULO DA PESQUISA ACADÊMICA
+                        </th>
+                        <th>|</th>
+                        <th>data da postagem</th>
+                    </tr>
+                </thead>
+                <thead>
+                    <tr>
+                        <th>TÍTULO DA PESQUISA ACADÊMICA
+                        </th>
+                        <th>|</th>
+                        <th>data da postagem</th>
+                    </tr>
+                </thead>
+                <thead>
+                    <tr>
+                        <th>TÍTULO DA PESQUISA ACADÊMICA
+                        </th>
+                        <th>|</th>
+                        <th>data da postagem</th>
+                    </tr>
+                </thead>
+                <thead>
+                    <tr>
+                        <th>TÍTULO DA PESQUISA ACADÊMICA
+                        </th>
+                        <th>|</th>
+                        <th>data da postagem</th>
+                    </tr>
+                </thead>
+            </table>
+           
+        </div>
+    </div>
+</body>
+</html>

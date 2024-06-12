@@ -1,44 +1,122 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comunidade Acadêmica</title>
     <style>
         body {
-            background-color: orange;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+            background-color: #FFECB3;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
-
-        .container {
+        .header {
+            background-color: #EDA32B;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .sidebar {
+            background-color: #3F51B5;
+            width: 60px;
+            height: 100vh;
+            position: fixed;
+        }
+        .content {
+            margin-left: 60px;
+            padding: 20px;
+        }
+        .title-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .title {
+            font-size: 2em;
+            color: #D84315;
+        }
+        .search-bar {
+            background-color: #D84315;
+            border: none;
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+            width: 200px;
             text-align: center;
         }
-
-        .square-link {
-            display: inline-block;
-            padding: 20px;
-            font-size: 24px;
-            color: white;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            cursor: pointer;
-            margin: 10px 0;
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
         }
-
-        .square-link:hover {
-            background-color: #0056b3;
+        .card {
+            background-color: #64B5F6;
+            border-radius: 10px;
+            padding: 20px;
+            width: calc(50% - 20px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: white;
+            flex: 1 1 calc(45% - 20px); /* Ajuste para garantir que fiquem duas por linha */
+            max-width: 300px; /* Limita a largura máxima */
+        }
+        .card h3 {
+            margin: 0 0 10px 0;
+        }
+        .card p {
+            margin: 5px 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Comunidade Acadêmica</h1>
-        <a th:href="@{/artigo}" class="square-link">Artigo</a>
+    <div class="header">
+        <div>
+            <a href="#">HIVE</a>
+            <a href="#">Cesar School</a>
+            <a href="#">Lattes</a>
+        </div>
+    </div>
+    <div class="sidebar">
+        <!-- Placeholder for sidebar content -->
+    </div>
+    <div class="content">
+        <div class="title-container">
+            <div>
+                <div class="title">Comunidade Acadêmica</div>
+                <div>Explore algumas pesquisas acadêmicas.</div>
+            </div>
+            <input type="text" class="search-bar" placeholder="pesquisar...">
+        </div>
+        <div class="cards">
+            <a th:href="@{/artigo}" class="card">
+                <h3>Artigo Design Sustentável</h3>
+                <p>DISCENTE: Gabrielle Pereira</p>
+                <p>Lorem ipsum dolor sit amet. Quo esse porro ut nemo tempora nam reiciendis molestiae! Et iste veniam in...</p>
+            </a>
+            <a th:href="@{/artigo}" class="card">
+                <h3>Pesquisa sobre IA</h3>
+                <p>DISCENTE: Rodrigo Rios</p>
+                <p>Lorem ipsum dolor sit amet. Quo esse porro ut nemo tempora nam reiciendis molestiae! Et iste veniam in...</p>
+            </a>
+            <a th:href="@{/artigo}" class="card">
+                <h3>Pesquisa Design Social</h3>
+                <p>DISCENTE: Gabrielle Pereira</p>
+                <p>Lorem ipsum dolor sit amet. Quo esse porro ut nemo tempora nam reiciendis molestiae! Et iste veniam in...</p>
+            </a>
+            <a th:href="@{/artigo}" class="card">
+                <h3>Artigo</h3>
+                <p>DISCENTE: Lucas Becker</p>
+                <p>Lorem ipsum dolor sit amet. Quo esse porro ut nemo tempora nam reiciendis molestiae! Et iste veniam in...</p>
+            </a>
+        </div>
     </div>
 </body>
 </html>

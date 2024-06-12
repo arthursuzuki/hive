@@ -40,4 +40,13 @@ public class Controle {
         return new ModelAndView("artigo");
     }
 
+    @RequestMapping("/listao")
+    public ModelAndView listao(){
+        return new ModelAndView("listao");
+    }
+
+    @RequestMapping("/perfil")
+    public ModelAndView perfil(){
+        return new ModelAndView("perfil");
+    }
 }

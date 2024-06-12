@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Página Home</title>
+    <style>
+        body {
+            background-color: #FFF8D1; /* Fundo amarelo claro */
+            color: #FFFFFF; /* Texto branco */
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+        background-color: #EDA32B; /* Laranja */
+        text-align: left;
+        height: 70px;
+        display: flex;
+        align-items: center; /* Centraliza verticalmente */
+        padding-left: 40px; /* Adiciona espaço à esquerda */
+}
+
+
+        .header p {
+            display: inline;
+            font-size: 20px;
+            font-weight: bold;
+            padding-left: 40px;
+            margin-top: 20px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .title {
+            color: #CE5909; /* Cor do título */
+            font-size: 30px;
+            font-weight: 800;
+            margin-left: 100px;
+        }
+
+        .search-box {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: 542px;
+            height: 53px;
+            flex-shrink: 0;
+            font-size: 16px;
+            background-color: #EDA32B; /* Fundo laranja */
+            border: none;
+            color: white; /* Texto branco */
+            margin-left: 900px;
+            margin-top: -80px;
+            display: flex;
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .botao {
+            background-color: #FFA726;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            margin-top: 10px;
+            margin-left: 1100px;
+        }
+
+        table {
+            width: 45%;
+            border-collapse: collapse;
+            margin-top: 70px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #FFFFFF;
+        }
+
+        th {
+            background-color: #6498FA; /* Azul claro */
+            color: #FFFFFF;
+        }
+
+        td {
+            background-color: #6498FA; /* Azul escuro */
+        }
+
+        a {
+            color: #FFFFFF; /* Links em branco */
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p>HIVE | Cesar School | Lattes</p>
+    </div>
+    <div class="content">
+        <div class="title">LISTÃO COMUNIDADE <br> ACADÊMICA</div>
+        <div class="search-box">
+            <input type="text" placeholder="Pesquisar por nome/email...">
+        </div>
+            <a th:href="@{/perfil}" type="button-link" class="botao">PESQUISAR</a>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>DOCENTES</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>NOME</td>
+                        <td>email school</td>
+                        <td><a href="#">link lattes</a></td>
+                    </tr>
+                    <tr>
+                        <td>NOME</td>
+                        <td>email school</td>
+                        <td><a href="#">link lattes</a></td>
+                    </tr>
+                    <tr>
+                        <td>NOME</td>
+                        <td>email school</td>
+                        <td><a href="#">link lattes</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>DISCENTES</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>NOME</td>
+                        <td>email school</td>
+                        <td><a href="#">link lattes</a></td>
+                    </tr>
+                    <tr>
+                        <td>NOME</td>
+                        <td>email school</td>
+                        <td><a href="#">link lattes</a></td>
+                    </tr>
+                    <tr>
+                        <td>NOME</td>
+                        <td>email school</td>
+                        <td><a href="#">link lattes</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
