@@ -1,7 +1,7 @@
-#HIVE
-## O Hive é o Portal da Inovação Acadêmica da Cesar School, com intuito de impulsionar a criatividade e o empreendedorismo entre os estudantes. Como um espaço colaborativo, o Hive conecta talentos e ideias inovadoras, transformando desafios acadêmicos em oportunidades reais de impacto.
+# HIVE
+O Hive é o Portal da Inovação Acadêmica da Cesar School, com intuito de impulsionar a criatividade e o empreendedorismo entre os estudantes. Como um espaço colaborativo, o Hive conecta talentos e ideias inovadoras, transformando desafios acadêmicos em oportunidades reais de impacto.
 
-##Participantes
+## Participantes
 
 Rodrigo Lucena Cavalcanti - rlc2@cesar.school
 
@@ -11,7 +11,7 @@ Lucas Souto Maior Caldas - lsmc2@cesar.school
 
 Arthur Suzuki - ajls@cesar.school
 
-##Codigo MySQL
+## Codigo MySQL
 
 CREATE DATABASE Hive;
 
