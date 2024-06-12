@@ -96,26 +96,34 @@
             <input type="text" class="search-bar" placeholder="pesquisar...">
         </div>
         <div class="cards">
-            <a th:href="@{/artigo}" class="card">
-                <h3>Artigo Design Sustentável</h3>
-                <p>DISCENTE: Gabrielle Pereira</p>
-                <p>Lorem ipsum dolor sit amet. Quo esse porro ut nemo tempora nam reiciendis molestiae! Et iste veniam in...</p>
-            </a>
-            <a th:href="@{/artigo}" class="card">
-                <h3>Pesquisa sobre IA</h3>
-                <p>DISCENTE: Rodrigo Rios</p>
-                <p>Lorem ipsum dolor sit amet. Quo esse porro ut nemo tempora nam reiciendis molestiae! Et iste veniam in...</p>
-            </a>
-            <a th:href="@{/artigo}" class="card">
-                <h3>Pesquisa Design Social</h3>
-                <p>DISCENTE: Gabrielle Pereira</p>
-                <p>Lorem ipsum dolor sit amet. Quo esse porro ut nemo tempora nam reiciendis molestiae! Et iste veniam in...</p>
-            </a>
-            <a th:href="@{/artigo}" class="card">
-                <h3>Artigo</h3>
-                <p>DISCENTE: Lucas Becker</p>
-                <p>Lorem ipsum dolor sit amet. Quo esse porro ut nemo tempora nam reiciendis molestiae! Et iste veniam in...</p>
-            </a>
+            <div class="card" th:each="artigo : ${artigos}">
+                <a th:href="@{/artigos/{id}(id=${artigo.id})}">
+                    <h3 th:text="${artigo.titulo}">Artigo Título</h3>
+                    <p>DISCENTE: <span th:text="${artigo.autor.nomeCompleto}">Nome do Autor</span></p>
+                    <p th:text="${#strings.abbreviate(artigo.conteudo, 100)}">Conteúdo do Artigo...</p>
+                </a>
+            </div>
+            <div class="card" th:each="artigo : ${artigos}">
+                <a th:href="@{/artigos/{id}(id=${artigo.id})}">
+                    <h3 th:text="${artigo.titulo}">Artigo Título</h3>
+                    <p>DISCENTE: <span th:text="${artigo.autor.nomeCompleto}">Nome do Autor</span></p>
+                    <p th:text="${#strings.abbreviate(artigo.conteudo, 100)}">Conteúdo do Artigo...</p>
+                </a>
+            </div>
+            <div class="card" th:each="projeto : ${projetos}">
+                <a th:href="@{/projetos/{id}(id=${projeto.id})}">
+                    <h3 th:text="${projeto.nome}">Projeto Nome</h3>
+                    <p>DISCENTE: <span th:text="${projeto.lider.nomeCompleto}">Nome do Líder</span></p>
+                    <p th:text="${#strings.abbreviate(projeto.descricao, 100)}">Descrição do Projeto...</p>
+                </a>
+            </div>
+            <div class="card" th:each="projeto : ${projetos}">
+                <a th:href="@{/projetos/{id}(id=${projeto.id})}">
+                    <h3 th:text="${projeto.nome}">Projeto Nome</h3>
+                    <p>DISCENTE: <span th:text="${projeto.lider.nomeCompleto}">Nome do Líder</span></p>
+                    <p th:text="${#strings.abbreviate(projeto.descricao, 100)}">Descrição do Projeto...</p>
+                </a>
+            </div>
         </div>
     </div>
 </body>

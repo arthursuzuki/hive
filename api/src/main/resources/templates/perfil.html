@@ -1,180 +1,114 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
 <head>
-  <title>Página Home</title>
-<style>
-  body {
-    background-color: #FFF8D1; /* Fundo amarelo claro */
-    color: #FFFFFF; /* Texto branco */
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-
-  .header {
-    background-color: #EDA32B; /* Laranja */
-    text-align: left;
-    height: 70px;
-    display: flex;
-    align-items: center; /* Centraliza verticalmente */
-    padding-left: 40px; /* Adiciona espaço à esquerda */
-  }
-
-
-  .header p {
-    display: inline;
-    font-size: 20px;
-    font-weight: bold;
-    padding-left: 40px;
-    margin-top: 20px;
-  }
-
-  .content {
-    padding: 20px;
-  }
-
-  .title {
-    color: #CE5909; /* Cor do título */
-    font-size: 60px;
-    font-weight: 800;
-    margin-left: 190px;
-    margin-top: -100px;
-  }
-
-  .search-box {
-    margin-top: 20px;
-    margin-left: 50px;
-  }
-
-  .search-box input {
-    width: 277px;
-    height: 57px;
-    font-family: sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    flex-shrink: 0;
-    border-radius: 50px;
-    background: #6498FA;
-    border: none;
-    margin-left: 900px;
-    margin-top: -80px;
-    display: flex;
-    color: #FFFFFF;
-    padding-left: 45px;
-  }
-
-  .search-box input::value{
-    color: #FFFFFF;   
-  }
-
-  .table-container {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .email{
-    width: 81px;
-    height: 16px;
-    flex-shrink: 0;
-    color: #EDA32B;
-    font-family: sans-serif;
-    font-size: 30px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    margin-left: 190px;
-  }
-
-  .imagem {
-    margin-top:45px;
-    margin-left: 70px;
-    width: 91px;
-    height: 88px;
-    left: 20px;
-    gap: 0px;
-    opacity: 1; /* Ajusta opacidade para 1 */
-  }
-  table {
-    width: 45%;
-    border-collapse: collapse;
-    margin-top: 70px;
-    margin-left: 25%;
-    text-align: center;
-  }
-
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #FFFFFF;
-    padding-left: 25px;
-  }
-
-  th {
-    background-color: #FFF1A6; /* Azul claro */
-    color: #000000;
-    text-align: center;
-  }
-
-  td {
-    background-color: #6498FA; /* Azul escuro */
-  }
-
-  a {
-    color: #FFFFFF; /* Links em branco */
-    text-decoration: none;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário</title>
+    <style>
+        body {
+            background-color: #FFECB3;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #EDA32B;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .profile-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .profile-info h1 {
+            color: #D84315;
+            margin: 0;
+        }
+        .profile-info p {
+            color: #FFA726;
+            margin: 0;
+        }
+        .research-list {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .research-list table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .research-list th, .research-list td {
+            padding: 10px;
+            border: 1px solid #D84315;
+        }
+        .research-list th {
+            background-color: #FFD54F;
+            color: #D84315;
+            text-align: left;
+        }
+        .research-list td {
+            background-color: #FFECB3;
+        }
+        .btn-lattes {
+            background-color: #64B5F6;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .btn-lattes:hover {
+            background-color: #42A5F5;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
+        <div>
+            <a href="#">HIVE</a>
+            <a href="#">Cesar School</a>
+            <a href="#">Lattes</a>
+        </div>
     </div>
-    <div class="content">
-        <img src="@{/elipse.png}" alt="" class="imagem">
-        <div class="title">NOME</div>
-        <div class="email">email@school</div>
-        <div class="search-box">
-            <div class="search-box">
-                <input type="button" value="ACESSAR LATTES">
-            </div>
-            
+    <div class="profile-container">
+        <div class="profile-info">
+            <img src="user-image.png" alt="Foto do Usuário" width="150" height="150">
+            <h1 th:text="${usuario.nomeCompleto}">NOME</h1>
+            <p th:text="${usuario.email}">email@school</p>
         </div>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>TÍTULO DA PESQUISA ACADÊMICA
-                        </th>
-                        <th>|</th>
-                        <th>data da postagem</th>
-                    </tr>
-                </thead>
-                <thead>
-                    <tr>
-                        <th>TÍTULO DA PESQUISA ACADÊMICA
-                        </th>
-                        <th>|</th>
-                        <th>data da postagem</th>
-                    </tr>
-                </thead>
-                <thead>
-                    <tr>
-                        <th>TÍTULO DA PESQUISA ACADÊMICA
-                        </th>
-                        <th>|</th>
-                        <th>data da postagem</th>
-                    </tr>
-                </thead>
-                <thead>
-                    <tr>
-                        <th>TÍTULO DA PESQUISA ACADÊMICA
-                        </th>
-                        <th>|</th>
-                        <th>data da postagem</th>
-                    </tr>
-                </thead>
-            </table>
-           
-        </div>
+        <a href="https://lattes.cnpq.br" class="btn-lattes">ACESSAR LATTES</a>
+    </div>
+    <div class="research-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>TÍTULO DA PESQUISA ACADÊMICA</th>
+                    <th>DATA DA POSTAGEM</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="artigo : ${artigos}">
+                    <td th:text="${artigo.titulo}">TÍTULO DA PESQUISA ACADÊMICA</td>
+                    <td th:text="${#dates.format(artigo.dataPublicacao, 'dd/MM/yyyy')}">data da postagem</td>
+                </tr>
+                <tr th:each="projeto : ${projetos}">
+                    <td th:text="${projeto.nome}">TÍTULO DA PESQUISA ACADÊMICA</td>
+                    <td th:text="${#dates.format(projeto.dataCriacao, 'dd/MM/yyyy')}">data da postagem</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

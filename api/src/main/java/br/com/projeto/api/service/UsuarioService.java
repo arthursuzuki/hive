@@ -11,6 +11,7 @@ import br.com.projeto.api.repository.UsuarioRepository;
 
 @Service
 public class UsuarioService {
+
     @Autowired
     private UsuarioRepository usuarioRepository;
 
@@ -18,7 +19,11 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
-    public Optional<Usuario> findUsuarioById(int id) {
+    public Optional<Usuario> findUsuarioById(Long id) {
         return usuarioRepository.findById(id);
     }
+
+    public Usuario findByEmail(String email) {
+        return usuarioRepository.findByEmail(email);
+    }    
 }

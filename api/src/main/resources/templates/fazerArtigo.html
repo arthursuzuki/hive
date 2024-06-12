@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidade Acadêmica - Criar Artigo</title>
+    <style>
+        body {
+            background-color: #FFECB3;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #EDA32B;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .sidebar {
+            background-color: #3F51B5;
+            width: 60px;
+            height: 100vh;
+            position: fixed;
+        }
+        .content {
+            margin-left: 60px;
+            padding: 20px;
+        }
+        .title-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .title {
+            font-size: 2em;
+            color: #D84315;
+            margin-left: 5px;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+        .search-bar {
+            background-color: #D84315;
+            border: none;
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+            width: 200px;
+            text-align: center;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #64B5F6;
+            border-radius: 10px;
+            padding: 20px;
+            width: calc(50% - 20px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: white;
+            flex: 1 1 calc(45% - 20px); /* Ajuste para garantir que fiquem duas por linha */
+            max-width: 1000px; /* Limita a largura máxima */
+            margin-top: 100px;
+            margin-left: 200px;
+            height: auto; /* Ajuste a altura para se adequar ao conteúdo */
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .card h3 {
+            margin: 0 0 10px 0;
+        }
+        .card p {
+            margin: 5px 0;
+        }
+        .card textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            resize: none;
+        }
+        .card input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        .botao {
+            background-color: #D84315;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            align-self: flex-end;
+        }
+        .botao:hover {
+            background-color: #BF360C;
+        }
+        h3 {
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <a href="#">HIVE</a>
+            <a href="#">Cesar School</a>
+            <a href="#">Lattes</a>
+        </div>
+    </div>
+    <div class="sidebar">
+    </div>
+    <div class="content">
+        <div class="cards">
+            <div class="card">
+                <h3>Escreva seu Artigo</h3>
+                <form th:action="@{/api/artigos}" th:object="${artigo}" method="post">
+                    <textarea th:field="*{conteudo}" placeholder="Escreva seu artigo aqui..."></textarea>
+                    <input type="text" th:field="*{titulo}" placeholder="Título do Artigo">
+                    <button type="submit" class="botao">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

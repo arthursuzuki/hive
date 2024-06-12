@@ -105,20 +105,3 @@
     </div>
 </body>
 </html>
-<body>
-    <form action="/login" method="post">
-        <div>
-            <label for="username">E-mail:</label>
-            <input type="text" id="username" name="username" placeholder="Digite seu e-mail">
-        </div>
-        <div>
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" placeholder="Digite sua senha">
-        </div>
-        <div>
-            <button type="submit">Entrar</button>
-        </div>
-        <p th:if="${loginError}" style="color: red;">Usuário ou senha inválidos!</p>
-    </form>
-</body>
-</html>
