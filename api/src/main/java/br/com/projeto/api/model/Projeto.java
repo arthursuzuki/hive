@@ -16,19 +16,16 @@ public class Projeto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String nome;
 
     @Column(columnDefinition = "TEXT")
     private String descricao;
 
+    private LocalDateTime dataCriacao = LocalDateTime.now();
+
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
-
-    @Column(columnDefinition = "TIMESTAMP")
-    private LocalDateTime dataCriacao;
-
 
     public Long getId() {
         return id;
@@ -54,19 +51,19 @@ public class Projeto {
         this.descricao = descricao;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
     public LocalDateTime getDataCriacao() {
         return dataCriacao;
     }
 
     public void setDataCriacao(LocalDateTime dataCriacao) {
         this.dataCriacao = dataCriacao;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
