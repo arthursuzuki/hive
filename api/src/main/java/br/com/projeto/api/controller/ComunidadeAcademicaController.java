@@ -1,24 +1,22 @@
 package br.com.projeto.api.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.servlet.ModelAndView;
+
+import br.com.projeto.api.service.ViewService;
 
 @Controller
 public class ComunidadeAcademicaController {
 
+    @Autowired
+    private ViewService viewService;
+
     @GetMapping("/comunidade_academica")
-    public ModelAndView comunidadeAcademica() {
-        return new ModelAndView("comunidade_academica");
-    }
-
-    @GetMapping("/listao")
-    public ModelAndView listao() {
-        return new ModelAndView("listao");
-    }
-
-    @GetMapping("/perfil")
-    public ModelAndView perfil() {
-        return new ModelAndView("perfil");
+    public String comunidadeAcademica(Model model) {
+        model.addAttribute("artigos", viewService.listarArtigos());
+        model.addAttribute("projetos", viewService.listarProjetos());
+        return "comunidade_academica";
     }
 }

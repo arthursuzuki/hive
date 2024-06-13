@@ -96,12 +96,11 @@
             <img src="@{/hive.png}" alt="HIVE Logo" class="logo">
             <img src="@{/cesar.png}" alt="Cesar School Logo" class="logo">
         </div>
-        <form class="form-container" action="@{/comunidade_academica}" method="post">
+        <div class="form-container">
             <input type="text" placeholder="Email School">
             <input type="password" placeholder="Senha">
-            <button type="button-link" class="botao">ENTRAR</button>
-            <p th:if="${loginError}" style="color: red;">Usuário ou senha inválidos!</p>
-        </form>
+            <button th:href="@{/comunidade_academica}" type="button-link" class="botao">ENTRAR</button>
+        </div>
     </div>
 </body>
 </html>

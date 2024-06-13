@@ -21,6 +21,8 @@ CREATE USER 'superuser'@'localhost' IDENTIFIED BY 'rlc20040714';
 GRANT ALL PRIVILEGES ON *.* TO 'superuser'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
+use Hive;
+
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -76,8 +78,26 @@ CREATE TABLE usuario_projetos (
     FOREIGN KEY (projeto_id) REFERENCES projetos(id)
 );
 
+INSERT INTO usuarios (username, password, email) VALUES ('user1', 'password1', 'user1@example.com');
+INSERT INTO usuarios (username, password, email) VALUES ('user2', 'password2', 'user2@example.com');
+
 INSERT INTO papeis (nome) VALUES ('Membro da Comunidade');
 INSERT INTO papeis (nome) VALUES ('Gerenciador de Pesquisa');
+
+INSERT INTO usuario_papeis (usuario_id, papel_id) VALUES (1, 1);
+INSERT INTO usuario_papeis (usuario_id, papel_id) VALUES (2, 2);
+
+INSERT INTO artigos (titulo, autor_id, inicio_artigo, conteudo_completo) VALUES ('Artigo 1', 1, 'Início do Artigo 1', 'Conteúdo completo do Artigo 1');
+INSERT INTO artigos (titulo, autor_id, inicio_artigo, conteudo_completo) VALUES ('Artigo 2', 2, 'Início do Artigo 2', 'Conteúdo completo do Artigo 2');
+
+INSERT INTO usuario_artigos (usuario_id, artigo_id) VALUES (1, 1);
+INSERT INTO usuario_artigos (usuario_id, artigo_id) VALUES (2, 2);
+
+INSERT INTO projetos (nome, descricao, usuario_id) VALUES ('Projeto 1', 'Descrição do Projeto 1', 1);
+INSERT INTO projetos (nome, descricao, usuario_id) VALUES ('Projeto 2', 'Descrição do Projeto 2', 2);
+
+INSERT INTO usuario_projetos (usuario_id, projeto_id) VALUES (1, 1);
+INSERT INTO usuario_projetos (usuario_id, projeto_id) VALUES (2, 2);
 
 CREATE VIEW view_lista_membros_comunidade AS
 SELECT u.id, u.email

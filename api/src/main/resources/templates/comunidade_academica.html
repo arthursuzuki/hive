@@ -1,129 +1,94 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunidade Acadêmica</title>
-    <style>
-        body {
-            background-color: #FFECB3;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .header {
-            background-color: #EDA32B;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .header a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .sidebar {
-            background-color: #3F51B5;
-            width: 60px;
-            height: 100vh;
-            position: fixed;
-        }
-        .content {
-            margin-left: 60px;
-            padding: 20px;
-        }
-        .title-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .title {
-            font-size: 2em;
-            color: #D84315;
-        }
-        .search-bar {
-            background-color: #D84315;
-            border: none;
-            padding: 10px;
-            color: white;
-            border-radius: 5px;
-            width: 200px;
-            text-align: center;
-        }
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .card {
-            background-color: #64B5F6;
-            border-radius: 10px;
-            padding: 20px;
-            width: calc(50% - 20px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-decoration: none;
-            color: white;
-            flex: 1 1 calc(45% - 20px); /* Ajuste para garantir que fiquem duas por linha */
-            max-width: 300px; /* Limita a largura máxima */
-        }
-        .card h3 {
-            margin: 0 0 10px 0;
-        }
-        .card p {
-            margin: 5px 0;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Comunidade Acadêmica</title>
+<style>
+  body {
+    margin: 0;
+    background-color: #FFF1A6;
+    font-family: Arial, sans-serif;
+    display: flex;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #EDA32B;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+  }
+  .menu {
+    font-size: 18px;
+    color: #fff;
+  }
+  .login-btn {
+    background-color: #CE5909;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  .sidebar {
+    width: 200px;
+    background-color: #6A1B9A;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 60px; /* Ajuste este valor para coincidir com a altura do cabeçalho */
+    bottom: 0;
+  }
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    margin: 10px 0;
+    display: block;
+  }
+  .content {
+    margin-left: 220px;
+    padding: 20px;
+    padding-top: 80px; /* Ajuste este valor para coincidir com a altura do cabeçalho */
+    width: calc(100% - 220px);
+  }
+  .card {
+    background-color: #4DA6FF;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+</style>
 </head>
 <body>
-    <div class="header">
-        <div>
-            <a href="#">HIVE</a>
-            <a href="#">Cesar School</a>
-            <a href="#">Lattes</a>
-        </div>
-    </div>
+    <header>
+        <nav class="menu">
+            HIVE | Cesar School | Lattes
+        </nav>
+    </header>
     <div class="sidebar">
-        <!-- Placeholder for sidebar content -->
+        <a th:href="@{/perfil}">Perfil</a>
+        <a th:href="@{/fazerartigo}">Fazer Artigo</a>
+        <a th:href="@{/fazerprojeto}">Fazer Projeto</a>
     </div>
     <div class="content">
-        <div class="title-container">
-            <div>
-                <div class="title">Comunidade Acadêmica</div>
-                <div>Explore algumas pesquisas acadêmicas.</div>
-            </div>
-            <input type="text" class="search-bar" placeholder="pesquisar...">
+        <h1>Comunidade Acadêmica</h1>
+        <p>Explore algumas pesquisas acadêmicas.</p>
+        <div class="card" th:each="artigo : ${artigos}">
+            <h2 th:text="${artigo.titulo}">Artigo Título</h2>
+            <p>DISENTE: <span th:text="${artigo.autorId}">Nome do Autor</span></p>
+            <p th:text="${artigo.inicioArtigo}">Conteúdo do Artigo...</p>
         </div>
-        <div class="cards">
-            <div class="card" th:each="artigo : ${artigos}">
-                <a th:href="@{/artigos/{id}(id=${artigo.id})}">
-                    <h3 th:text="${artigo.titulo}">Artigo Título</h3>
-                    <p>DISCENTE: <span th:text="${artigo.autor.nomeCompleto}">Nome do Autor</span></p>
-                    <p th:text="${#strings.abbreviate(artigo.conteudo, 100)}">Conteúdo do Artigo...</p>
-                </a>
-            </div>
-            <div class="card" th:each="artigo : ${artigos}">
-                <a th:href="@{/artigos/{id}(id=${artigo.id})}">
-                    <h3 th:text="${artigo.titulo}">Artigo Título</h3>
-                    <p>DISCENTE: <span th:text="${artigo.autor.nomeCompleto}">Nome do Autor</span></p>
-                    <p th:text="${#strings.abbreviate(artigo.conteudo, 100)}">Conteúdo do Artigo...</p>
-                </a>
-            </div>
-            <div class="card" th:each="projeto : ${projetos}">
-                <a th:href="@{/projetos/{id}(id=${projeto.id})}">
-                    <h3 th:text="${projeto.nome}">Projeto Nome</h3>
-                    <p>DISCENTE: <span th:text="${projeto.lider.nomeCompleto}">Nome do Líder</span></p>
-                    <p th:text="${#strings.abbreviate(projeto.descricao, 100)}">Descrição do Projeto...</p>
-                </a>
-            </div>
-            <div class="card" th:each="projeto : ${projetos}">
-                <a th:href="@{/projetos/{id}(id=${projeto.id})}">
-                    <h3 th:text="${projeto.nome}">Projeto Nome</h3>
-                    <p>DISCENTE: <span th:text="${projeto.lider.nomeCompleto}">Nome do Líder</span></p>
-                    <p th:text="${#strings.abbreviate(projeto.descricao, 100)}">Descrição do Projeto...</p>
-                </a>
-            </div>
+        <div class="card" th:each="projeto : ${projetos}">
+            <h2 th:text="${projeto.nome}">Projeto Nome</h2>
+            <p>DISENTE: <span th:text="${projeto.usuarioId}">Nome do Líder</span></p>
+            <p th:text="${projeto.descricao}">Descrição do Projeto...</p>
         </div>
     </div>
 </body>
