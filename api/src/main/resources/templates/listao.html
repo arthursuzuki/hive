@@ -12,14 +12,13 @@
         }
 
         .header {
-        background-color: #EDA32B; /* Laranja */
-        text-align: left;
-        height: 70px;
-        display: flex;
-        align-items: center; /* Centraliza verticalmente */
-        padding-left: 40px; /* Adiciona espaço à esquerda */
-}
-
+            background-color: #EDA32B; /* Laranja */
+            text-align: left;
+            height: 70px;
+            display: flex;
+            align-items: center; /* Centraliza verticalmente */
+            padding-left: 40px; /* Adiciona espaço à esquerda */
+        }
 
         .header p {
             display: inline;
@@ -111,57 +110,20 @@
         <div class="search-box">
             <input type="text" placeholder="Pesquisar por nome/email...">
         </div>
-            <a th:href="@{/perfil}" type="button-link" class="botao">PESQUISAR</a>
         <div class="table-container">
             <table>
                 <thead>
                     <tr>
-                        <th>DOCENTES</th>
-                        <th></th>
-                        <th></th>
+                        <th>MEMBROS</th>
+                        <th>Email</th>
+                        <th>Perfil</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>NOME</td>
-                        <td>email school</td>
-                        <td><a href="#">link lattes</a></td>
-                    </tr>
-                    <tr>
-                        <td>NOME</td>
-                        <td>email school</td>
-                        <td><a href="#">link lattes</a></td>
-                    </tr>
-                    <tr>
-                        <td>NOME</td>
-                        <td>email school</td>
-                        <td><a href="#">link lattes</a></td>
-                    </tr>
-                </tbody>
-            </table>
-            <table>
-                <thead>
-                    <tr>
-                        <th>DISCENTES</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>NOME</td>
-                        <td>email school</td>
-                        <td><a href="#">link lattes</a></td>
-                    </tr>
-                    <tr>
-                        <td>NOME</td>
-                        <td>email school</td>
-                        <td><a href="#">link lattes</a></td>
-                    </tr>
-                    <tr>
-                        <td>NOME</td>
-                        <td>email school</td>
-                        <td><a href="#">link lattes</a></td>
+                    <tr th:each="membro : ${membros}">
+                        <td th:text="${membro.username}">NOME</td>
+                        <td th:text="${membro.email}">email school</td>
+                        <td><a th:href="@{'/perfil/' + ${membro.id}}">Ver Perfil</a></td>
                     </tr>
                 </tbody>
             </table>
