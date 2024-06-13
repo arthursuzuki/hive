@@ -19,15 +19,12 @@ CREATE USER 'superuser'@'localhost' IDENTIFIED BY 'rlc20040714';
 GRANT ALL PRIVILEGES ON *.* TO 'superuser'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
-
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(100) NOT null
-    email VARCHAR(100);
+    password VARCHAR(100) NOT NULL,
+    email VARCHAR(100)
 );
-
-
 
 CREATE TABLE papeis (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -80,21 +77,21 @@ CREATE TABLE usuario_projetos (
 INSERT INTO papeis (nome) VALUES ('Membro da Comunidade');
 INSERT INTO papeis (nome) VALUES ('Gerenciador de Pesquisa');
 
-SELECT u.id, u.nome_completo, u.email
+CREATE VIEW view_lista_membros_comunidade AS
+SELECT u.id, u.email
 FROM usuarios u
 JOIN usuario_papeis up ON u.id = up.usuario_id
 JOIN papeis p ON up.papel_id = p.id
 WHERE p.nome = 'Membro da Comunidade';
 
-SELECT u.nome_completo, u.email
-FROM usuarios u
-WHERE u.id = ?;  -- Substituir "?" pelo ID do membro
+CREATE VIEW view_perfil_membro_comunidade AS
+SELECT u.id, u.username, u.email
+FROM usuarios u;
 
-SELECT p.id, p.nome, p.descricao, p.data_criacao
-FROM projetos p
-WHERE p.usuario_id = ?;  -- Substituir "?" pelo ID do membro
+CREATE VIEW view_projetos_membro_comunidade AS
+SELECT p.id, p.nome, p.descricao, p.data_criacao, p.usuario_id
+FROM projetos p;
 
-SELECT a.id, a.titulo, a.inicio_artigo, a.data_publicacao
-FROM artigos a
-JOIN usuario_artigos ua ON a.id = ua.artigo_id
-WHERE ua.usuario_id = ? AND a.autor_id = ?;  -- Substituir "?" pelo ID do membro e autor_id
+CREATE VIEW view_artigos_projeto AS
+SELECT a.id, a.titulo, a.inicio_artigo, a.data_publicacao, a.autor_id
+FROM artigos a;
